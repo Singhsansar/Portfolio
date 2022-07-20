@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1>Regestration Form</h1>
+        <form action="/action.js">
+            <!--input : form element-->
+            <!-- Label above anyinput in the form-->
+                <input type="text" placeholder="Email">
+                <br>
+            <input type="password" placeholder="password">
+            <br>
+            <!-- <button type="submit">submit</button> -->
+            <input type="submit" value="submit">
+            <br>
+            <!--same name for the radio button will treat all the elements of single input type -->
+            <label for="id1">
+                <input type="radio" value="apple" name = "fruits" id="id1">apple
+            </label>
+            <br>
+                <label for="ld2">
+            <input type="radio" value="orange" name = "fruits" id="id2">orange
+            </label>
+
+            <br>
+            <hr>
+            <!-- Check box uses and syntax -->
+            <label for="math">
+                <input type="checkbox" value="math" name = "subject" id = "101"> math
+            </label>
+            <br>
+            <label for="Chemistry">
+                <input type="checkbox" value="Chemistry" name = "subject" id = "102"> Chemistry
+            </label>
+            <br>
+            <label for="Computer">
+                <input type="checkbox" value="Computer" name = "subject" id = "103"> Computer
+            </label>
+            <br>
+            <label for="Physics">
+                <input type="checkbox" value="Physics" name = "subject" id = "104"> Physis
+            </label>
+
+            <br>
+            <br>
+            <!--Drop down button is used here -->>
+            <select name="city">
+                <option value="Delhi">Delhi</option>
+                <option value="Tokyo">Tokyo</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Kolkota">Kolkota</option>
+            </select>
+            <br>
+            <br>
+            <!--Text area-->
+            <!--rows and columns will decide the width and height of the textarea-->
+            <!--placeholder gives the information to be entered there -->
+            <textarea name="feedback" id="404" cols="50" rows="5" placeholder="please give your valuable feedback"></textarea>
+        </form>
+        <!--iframe is used to use another website in to our own website in small frame-->>
+        <iframe width="800" height="500" src="https://www.youtube.com/embed/znNk2RmUlFI" title="YouTube video player"
+         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+          <br>
+<!-- 
+        <iframe width="500" height="700" src="https://wiki.bi0s.in/" frameborder="0"></iframe> -->
+        <br>
+        <br>
+    <!-- allow with our own videos -->>
+        <video width="500" height="700" src="https://www.youtube.com/watch?v=HcOc7P5BMi4&ab_channel=ApnaCollege" autoplay controls>
+            myvideo
+        </video>
+    </main>
+    
+</body>
+</html>
