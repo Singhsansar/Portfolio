@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+/* Updated CSS for better responsiveness across devices */
 
 * {
     margin: 0;
@@ -33,7 +33,8 @@ section {
     justify-content: space-between;
     min-height: 100vh;
     align-items: center;
-    padding: 9% 9% 10rem;
+    padding: 9% 5% 10rem; /* Adjust padding for better responsiveness */
+    margin-left: 5%; /* Adjust margin for better responsiveness */
 }
 
 .header {
@@ -41,7 +42,7 @@ section {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 2rem 9%;
+    padding: 2rem 5%; /* Adjust padding for better responsiveness */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,13 +53,20 @@ section {
     font-size: 3rem;
     color: var(--text-color);
     font-weight: 600;
-    cursor: default;
+    cursor: pointer;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
 }
 
 .navbar a {
     font-size: 1.7rem;
     color: var(--text-color);
-    margin-left: 4rem;
+    transition: color 0.3s ease-in-out;
 }
 
 .navbar a:hover,
@@ -75,30 +83,34 @@ section {
 .home {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-left: 10%;
+    margin-left: 5%; /* Adjust margin for better responsiveness */
 }
 
 .home-content h3 {
     font-size: 3rem;
-    font-weight: 700;
 }
 
 .home-content h1 {
     font-size: 5rem;
-    font-weight: 700;
-    line-height: 1.3;
 }
 
 .home-img img {
     border-radius: 200px;
-    width: 19vw;
-    height: 50vh;
-    margin-right: 5rem; /* Added margin */
+    width: 80%; /* Adjust width for better responsiveness */
+    max-width: 250px;
+    height: auto;
+    margin-right: 5%;
 }
 
 .home-content p {
     font-size: 1.6rem;
+}
+
+.social-media {
+    display: flex;
+    justify-content: left;
+    margin-top: 1rem;
+    margin-left: 0%;
 }
 
 .social-media a {
@@ -112,5 +124,182 @@ section {
     border-radius: 50%;
     font-size: 2rem;
     color: var(--main_color);
-    margin: 3rem 1.5rem 3rem 0;
+    margin: 0 1.5rem;
+}
+
+.about {
+    display: flex;
+    justify-content: center; 
+    align-items: start; 
+    flex-direction: column;
+    padding: 10rem 5%;
+    text-align: center; /* Update this line to center */
+}
+.aboutme {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.about h2, .projects h2, .contact h2 {
+    color: var(--main_color);
+    margin-top: 0%;
+    font-weight: 1200;
+    font-size: 3rem;
+    text-align: left;
+}
+
+.projects {
+    display: flex;
+    justify-content: center; 
+    align-items: start; 
+    flex-direction: column;
+    padding: 10rem 5%;
+    text-align: center; /* Update this line to center */
+    
+}
+
+
+.contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact li {
+    font-size: 1.6rem;
+    margin: 1rem 0;
+}
+
+.footer {
+    background-color: #000;
+    color: var(--text-color);
+    text-align: center;
+    padding: 10rem 0;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 1024px) {
+    .header {
+        padding: 2rem 5%;
+    }
+
+    .navbar {
+        width: 60%;
+    }
+
+    .home,
+    .home-content {
+        margin-left: 5%;
+    }
+
+    .home-img img {
+        margin-top: 30%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        width: 80%;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        display: none;
+        border-radius: 10%;
+        flex-direction: column;
+        text-align: left; /* Align to the left */
+        position: absolute;
+        top: 6rem;
+        right: 0; /* Align to the right */
+        width: 50%; /* Adjust max-width as needed */
+        background-color: rgba(0, 0, 0, 0.8); /* Deep black with 20% transparency */
+    }
+    
+    .navbar a {
+        margin: 1rem 0;
+        color: var(--text-color);
+        opacity: 0.8; /* Adjust opacity as needed */
+    }
+    
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .home {
+        flex-direction: column;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .home-img img {
+        margin-top: 60%;
+        max-width: 200px;
+        margin-right: 0;
+    }
+
+    .home-content {
+        margin-top: 1rem;
+    }
+
+    .home-content h3,
+    .home-content h1 {
+        font-size: 2rem;
+    }
+}
+
+
+/* for  projects section  */
+
+.project {
+
+    float: left;
+    align-items: start; 
+    width: 200px;
+    height: 500px;
+    background-color: #f4f4f4;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+.project_list
+{
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.project img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.project p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+
+
+/* for contace me */
+
+.contact{
+    display: flex;
+    justify-content: center; 
+    align-items: start; 
+    flex-direction: column;
+    padding: 10rem 5%;
+    text-align: center; /* Update this line to center */
 }
