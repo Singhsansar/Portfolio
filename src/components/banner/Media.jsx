@@ -9,9 +9,9 @@ const Media = () => {
             Find me in
           </h2>
           <div className="flex gap-4">
-            <span className="bannerIcon">
-              <FaFacebookF />
-            </span>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="bannerIcon">
+    <FaFacebookF />
+  </a>
             <span className="bannerIcon">
               <FaTwitter />
             </span>
@@ -42,5 +42,4 @@ const Media = () => {
       </div>
   )
 }
-
 export default Media
