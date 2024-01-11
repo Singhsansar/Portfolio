@@ -3,7 +3,7 @@ import { useTypewriter, Cursor } from 'react-simple-typewriter'
 import Media from './Media'
 
 
-function LeftBanner() {
+const LeftBanner = () =>  {
     const [text] = useTypewriter({
         words: ['Web Developer.', 'Machine Learning Engineer.'],
         loop: true,

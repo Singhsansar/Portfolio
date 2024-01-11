@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Title({title,des}) {
+const Title=({title,des})=> {
     return (
         <div className='flex  flex-col gap-4 mb-14 font-titleFont'>
             <h3 className='text-sm uppercase font-light text-designColor tracking-wide'>{title}</h3>
