@@ -1,0 +1,20 @@
+.responsive-banner {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  @media (max-width: 768px) {
+    .responsive-banner {
+      flex-direction: column-reverse;
+    }
+  
+    .responsive-banner > * {
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    .responsive-banner > *:last-child {
+      margin-bottom: 40px;
+    }
+  }
+  
