@@ -18,6 +18,7 @@ const Projects = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-14">
                 {ProjectList.map((item) => (
                     <ProjectCard
+                        key={item.id}
                         title={item.Name}
                         des={item.des}
                         src={item.img}
