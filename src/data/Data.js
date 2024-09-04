@@ -45,3 +45,7 @@ export const featuresData = [
     icon: <FaLaptopCode />
   },
 ];
+
+export const data = {
+
+}

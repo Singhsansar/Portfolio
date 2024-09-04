@@ -38,9 +38,9 @@ const LeftBanner = () => {
                 </p>
                 <div className='flex justify-center items-center bg-white max-w-[30%] py-2 rounded-lg px-3 border-r-4 border-designColor hover:bg-designColor hover:border-transparent transition-colors duration-300 ease-in-out'>
                     <a
-                        href='../../data/nikhils_resume.pdf'
+                        href='/nikhils_resume.pdf'
                         download="nikhils_resume.pdf"
-                        className='relative text-designColor font-mono text-sm md:text-base hover:text-white transform hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out'
+                        className='relative text-black font-bold text-sm md:text-base hover:text-white transform hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out'
                     > Resume
                     </a>
                 </div>
