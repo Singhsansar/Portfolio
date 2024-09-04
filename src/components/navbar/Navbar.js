@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { logo } from '../../assets/index';
 import { Link } from 'react-scroll';
 import { navLinksdata } from '../../constants';
-import { TfiAlignJustify } from "react-icons/tfi";
+
 
 const Navbar = () => {
     const [isMenuOpen, setMenuOpen] = useState(false);
@@ -31,7 +31,7 @@ const Navbar = () => {
 
     return (
         <div className='w-full fixed z-50 top-0 mx-auto font-titleFont border-b-[1px] border-gray-600 bg-bodyColor'>
-            <div className='h-20 md:h-20 flex justify-between items-center px-4 md:px-8'>
+            <div className='h-20 md:h-20 flex justify-between items-center px-4 md:px-8 lg:mx-10'>
                 <div className='flex-shrink-0'>
                     <img src={logo} alt='logo' className='w-16 h-16 md:w-20 md:h-20 hover:cursor-pointer' />
                 </div>
@@ -39,7 +39,7 @@ const Navbar = () => {
                     <ul className='flex space-x-4 md:space-x-6'>
                         {navLinksdata.map(({ _id, title, link }) => (
                             <li
-                                className="text-white  md:text-sm tracking-wide cursor-pointer transition duration-300 ease-in-out transform hover:text-white/50 hover:brightness-110 hover:scale-105"
+                                className="text-white  text-xl tracking-wide cursor-pointer transition duration-300 ease-in-out transform hover:text-white/50 hover:brightness-110 hover:scale-105"
                                 key={_id}
                             >
                                 <Link
@@ -55,24 +55,14 @@ const Navbar = () => {
                             </li>
                         ))}
                     </ul>
-
-                    <div className='bg-white rounded-lg py-2 px-3 border-r-4 border-designColor hover:bg-designColor hover:border-transparent transition-colors duration-300 ease-in-out'>
-                        <a
-                            href='../../data/nikhils_resume.pdf'
-                            download="nikhils_resume.pdf"
-                            className='text-designColor font-mono text-sm md:text-base hover:text-white transform hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out'
-                        >
-                            Download Resume
-                        </a>
-                    </div>
                 </div>
                 <div className='md:hidden'>
                     <button
                         className='menu-button text-gray-400 hover:text-designColor'
                         onClick={handleMenuToggle}
                     >
-                        <span className="text-xl w-8 h-8 inline-flex justify-center items-center">
-                            <TfiAlignJustify />
+                        <span className="text-xl  w-8 h-8  text-white inline-flex justify-center items-center">
+                            <i className="fi fi-br-menu-burger"></i>
                         </span>
                     </button>
                 </div>
@@ -103,17 +93,7 @@ const Navbar = () => {
                             </Link>
                         </li>
                     ))}
-                    <li className='text-white text-lg tracking-wide cursor-pointer hover:text-designColor transition duration-300'>
-                        <a
-                            href='nikhils_resume.pdf'
-                            download
-                            className='block bg-white rounded-lg p-2 border-r-4 border-designColor hover:bg-designColor hover:border-transparent text-designColor hover:text-white transform hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out text-center'
-                            onClick={closeMenu}
-                        >
-                            Download Resume
-                        </a>
 
-                    </li>
                 </ul>
             </div>
         </div >

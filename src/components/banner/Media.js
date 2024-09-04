@@ -1,5 +1,4 @@
 import React from 'react'
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
 const Media = () => {
   return (
     <div className="flex flex-col xl:flex-row gap-6 lgl:gap-0 justify-between">
@@ -7,17 +6,18 @@ const Media = () => {
         <h2 className="text-base uppercase font-titleFont mb-4">
           Find me in
         </h2>
-        <div className="flex gap-4">
+        <div className="flex text-xl gap-4">
           <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="bannerIcon">
-            <FaFacebookF /> </a>
+            <i className="fi fi-brands-facebook"></i>
+          </a>
           <span className="bannerIcon">
-            <FaTwitter />
+            <i className="fi fi-brands-twitter"></i>
           </span>
           <span className="bannerIcon">
-            <FaLinkedinIn />
+            <i className="fi fi-brands-linkedin"></i>
           </span>
           <span className="bannerIcon">
-            <FaGithub />
+            <i className="fi fi-brands-github"></i>
           </span>
         </div>
       </div>

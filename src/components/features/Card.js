@@ -4,8 +4,8 @@ import { HiArrowRight } from "react-icons/hi";
 const Card = ({ item: { title, des, icon }, index }) => {
     return (
         <div
-            className="w-full h-90 px-6 py-4 md:px-8 md:py-5 lg:px-12 lg:py-6 rounded-lg shadow-lg flex items-center bg-gradient-to-r from-[#000000] via-[#000000] to-[#14120b] group hover:bg-gradient-to-b hover:from-[#ffaf00] hover:to-[#000000] transition-all duration-500"
-            style={{ transitionDelay: `${index * 3000}ms` }}
+            className="w-full h-90 px-6 py-4 md:px-8 md:py-5 lg:px-12 lg:py-6 rounded-lg flex items-center bg-gradient-to-tr from-[#1a1a2e] via-[#283d3b] to-[#ab7028] shadow-shadowOne group hover:bg-gradient-to-b hover:from-[#1a1a2e] hover:via-[#16213e] hover:to-[#ffaf00] transition-all duration-500"
+            style={{ transitionDelay: `${index * 300}ms` }}
         >
             <div className="h-60 md:h-72 overflow-y-hidden">
                 <div className="flex h-full flex-col gap-6 md:gap-10 translate-y-12 md:translate-y-16 group-hover:translate-y-0 transition-transform duration-500">
@@ -34,6 +34,6 @@ const Card = ({ item: { title, des, icon }, index }) => {
             </div>
         </div>
     );
-}
+};
 
 export default Card;

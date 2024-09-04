@@ -15,14 +15,14 @@ const ContactLeft = () => {
                 <p className="text-lg font-normal text-gray-400">
                     Machine Learning Engineer
                 </p>
-                <p className="text-base text-justify text-gray-400 tracking-wide">
-                    I'm a focused Machine Learning Engineer specializing in NLP. I thrive on pushing the boundaries of AI, delivering impactful solutions with innovative insights.
-                </p>
                 <p className="text-base text-gray-400 flex items-center gap-2">
                     Phone: <span className="text-lightText">+91 74810 30330</span>
                 </p>
                 <p className="text-base text-gray-400 flex items-center gap-2">
                     Email: <span className="text-lightText">singhsansar433@gmail.com</span>
+                </p>
+                <p className="text-base text-justify text-gray-400 tracking-wide">
+                    I'm a focused Machine Learning Engineer specializing in NLP. I thrive on pushing the boundaries of AI, delivering impactful solutions with innovative insights.
                 </p>
             </div>
             <div className="flex flex-col gap-4 mt-6">

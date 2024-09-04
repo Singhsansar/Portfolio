@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Title from '../layouts/Title';
 import ContactLeft from './ContactLeft';
 
@@ -44,26 +44,32 @@ const Contact = () => {
         }
     };
 
+    useEffect(() => {
+        if (successMsg) {
+            const timer = setTimeout(() => {
+                setSuccessMsg(null);
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [successMsg, errMsg]);
+
     return (
-        <section
-            id="contact"
-            className="w-auto mx-4 sm:mx-6 md:mx-8 lg:mx-12 xl:mx-16 py-20 border-b-[1px] border-b-black"
-        >
+        <section id="contact" className="border-b-[1px] border-b-black py-20">
             <div className="flex justify-center items-center text-center">
                 <Title title="CONTACT" des="Contact With Me" />
             </div>
             <div className="w-full mt-10">
                 <div className="w-full h-auto flex flex-col lgl:flex-row justify-between">
                     <ContactLeft />
-                    <div className="w-full lgl:w-[60%] h-full py-10 bg-gradient-to-r from-[#1e2024] to-[#23272b] flex flex-col gap-8 p-4 lgl:p-8 rounded-lg shadow-shadowOne">
-                        <form className="w-full flex flex-col gap-4 lgl:gap-6 py-2 lgl:py-5">
+                    <div className="w-full lgl:w-[60%] h-full py-10 bg-gradient-to-r from-[#1e2024] to-[#23272b] flex flex-col gap-8 p-8 rounded-lg shadow-shadowOne">
+                        <form className="w-full flex flex-col gap-6 py-2">
                             {errMsg && (
-                                <p className="py-3 bg-gradient-to-r from-[#1e2024] to-[#23272b] shadow-shadowOne text-center text-orange-500 text-base tracking-wide animate-bounce">
+                                <p className="py-3 bg-gradient-to-r from-[#1e2024] to-[#23272b] shadow-shadowOne text-center text-orange-500 text-base animate-bounce">
                                     {errMsg}
                                 </p>
                             )}
                             {successMsg && (
-                                <p className="py-3 bg-gradient-to-r from-[#1e2024] to-[#23272b] shadow-shadowOne text-center text-green-500 text-base tracking-wide animate-bounce">
+                                <p className="py-3 bg-gradient-to-r from-[#1e2024] to-[#23272b] shadow-shadowOne text-center text-green-500 text-base animate-bounce">
                                     {successMsg}
                                 </p>
                             )}
@@ -75,9 +81,7 @@ const Contact = () => {
                                     <input
                                         onChange={(e) => setUsername(e.target.value)}
                                         value={username}
-                                        className={`${errMsg === "Username is required!" &&
-                                            "outline-designColor"
-                                            } contactInput`}
+                                        className={`contactInput ${errMsg === "Username is required!" && "border-red-500"}`}
                                         type="text"
                                     />
                                 </div>
@@ -88,9 +92,7 @@ const Contact = () => {
                                     <input
                                         onChange={(e) => setPhoneNumber(e.target.value)}
                                         value={phoneNumber}
-                                        className={`${errMsg === "Phone number is required!" &&
-                                            "outline-designColor"
-                                            } contactInput`}
+                                        className={`contactInput ${errMsg === "Phone number is required!" && "border-red-500"}`}
                                         type="text"
                                     />
                                 </div>
@@ -102,9 +104,7 @@ const Contact = () => {
                                 <input
                                     onChange={(e) => setEmail(e.target.value)}
                                     value={email}
-                                    className={`${errMsg === "Please give your Email!" &&
-                                        "outline-designColor"
-                                        } contactInput`}
+                                    className={`contactInput ${errMsg === "Please give your Email!" && "border-red-500"}`}
                                     type="email"
                                 />
                             </div>
@@ -115,9 +115,7 @@ const Contact = () => {
                                 <input
                                     onChange={(e) => setSubject(e.target.value)}
                                     value={subject}
-                                    className={`${errMsg === "Please provide a subject!" &&
-                                        "outline-designColor"
-                                        } contactInput`}
+                                    className={`contactInput ${errMsg === "Please provide a subject!" && "border-red-500"}`}
                                     type="text"
                                 />
                             </div>
@@ -128,37 +126,25 @@ const Contact = () => {
                                 <textarea
                                     onChange={(e) => setMessage(e.target.value)}
                                     value={message}
-                                    className={`${errMsg === "Message is required!" && "outline-designColor"
-                                        } contactTextArea`}
+                                    className={`contactTextArea ${errMsg === "Message is required!" && "border-red-500"}`}
                                     cols="30"
                                     rows="8"
-                                    style={{ textAlign: 'justify' }}
                                 ></textarea>
                             </div>
                             <div className="w-full">
                                 <button
                                     onClick={handleSend}
-                                    className="w-full h-12 bg-[#141518] rounded-lg text-base text-gray-400 tracking-wider uppercase hover:text-white duration-300 hover:border-[1px] hover:border-designColor border-transparent"
+                                    className="w-full h-12 bg-[#141518] rounded-lg text-gray-400 uppercase text-lg tracking-wider hover:text-white hover:border-[1px] hover:border-designColor duration-300"
                                 >
                                     Send Message
                                 </button>
                             </div>
-                            {errMsg && (
-                                <p className="py-3 bg-gradient-to-r from-[#1e2024] to-[#23272b] shadow-shadowOne text-center text-orange-500 text-base tracking-wide animate-bounce">
-                                    {errMsg}
-                                </p>
-                            )}
-                            {successMsg && (
-                                <p className="py-3 bg-gradient-to-r from-[#1e2024] to-[#23272b] shadow-shadowOne text-center text-green-500 text-base tracking-wide animate-bounce">
-                                    {successMsg}
-                                </p>
-                            )}
                         </form>
                     </div>
                 </div>
             </div>
         </section>
     );
-}
+};
 
 export default Contact;

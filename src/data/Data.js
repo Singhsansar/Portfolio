@@ -1,10 +1,10 @@
 import React from 'react';
 import { FiLayers } from 'react-icons/fi';
 import { FaAws } from "react-icons/fa";
-import { SiPytorch, SiDeepin } from 'react-icons/si';
+import { SiDeepin } from 'react-icons/si';
 import { HiMiniLanguage } from "react-icons/hi2";
 import { TbDeviceComputerCamera } from "react-icons/tb";
-import { FaLaptopCode, FaServer } from 'react-icons/fa';
+import { FaLaptopCode } from 'react-icons/fa';
 
 export const featuresData = [
   {
@@ -31,12 +31,7 @@ export const featuresData = [
     des: 'I work on Natural Language Processing (NLP) tasks, leveraging algorithms to understand and generate human language for diverse applications.',
     icon: <HiMiniLanguage />
   },
-  {
-    id: 5,
-    title: "MLOps",
-    des: 'I specialize in MLOps, ensuring seamless integration of machine learning models into production environments, optimizing workflows for efficiency.',
-    icon: <SiPytorch />
-  },
+
   {
     id: 6,
     title: "Cloud Computing",
@@ -49,10 +44,4 @@ export const featuresData = [
     des: 'I create responsive and dynamic web applications using modern web development technologies to deliver engaging user experiences.',
     icon: <FaLaptopCode />
   },
-  {
-    id: 8,
-    title: "Web Hosting",
-    des: 'I provide reliable and secure web hosting solutions, ensuring optimal performance and availability for websites and applications.',
-    icon: <FaServer />
-  }
 ];

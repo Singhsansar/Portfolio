@@ -4,31 +4,32 @@ import { FaGlobe } from "react-icons/fa";
 
 const ProjectsCard = ({ title, des, src, link, web }) => {
   return (
-    <div className="w-full h-auto p-4 xl:px-12 xl:py-10 rounded-lg shadow-shadowOne flex flex-col bg-gradient-to-r from-[#000000] via-[#000000] to-[#14120b] group hover:bg-gradient-to-b hover:from-[#ffaf00] hover:to-[#000000] transition-all duration-500">
-      <div className="w-full h-[85%] overflow-hidden rounded-lg relative">
+    <div className="w-full h-auto p-6 xl:px-8 xl:py-6 rounded-lg shadow-lg bg-gradient-to-r from-[#1a1a2e] via-[#283d3b] to-[#ab7028] group hover:bg-gradient-to-b hover:from-[#ffaf00] hover:to-[#1a1a1a] transition-all duration-500 transform hover:scale-105">
+      <div className="w-full h-[200px] overflow-hidden rounded-lg relative">
         <img
+
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 cursor-pointer"
           src={src}
           alt="Project"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-40 group-hover:opacity-60 transition-opacity duration-300"></div>
       </div>
-      <div className="w-full mt-5 flex flex-col gap-6">
+      <div className="w-full mt-4 flex flex-col gap-4">
         <div>
           <div className="flex items-center justify-between">
-            <h3 className="text-base uppercase text-white line-clamp-2 font-bold">
+            <h3 className="text-lg uppercase text-white font-bold">
               {title}
             </h3>
             <div className="flex gap-2">
-              <span className="text-lg w-10 h-10 rounded-full bg-black inline-flex justify-center items-center text-gray-400 hover:text-designColor duration-300 cursor-pointer">
+              <span className="text-lg w-9 h-9 rounded-full bg-black inline-flex justify-center items-center text-gray-400 hover:text-[#ffaf00] duration-300 cursor-pointer">
                 <a href={link} target='_blank' rel='noopener noreferrer'><BsGithub /></a>
               </span>
-              <span className="text-lg w-10 h-10 rounded-full bg-black inline-flex justify-center items-center text-gray-400 hover:text-designColor duration-300 cursor-pointer">
+              <span className="text-lg w-9 h-9 rounded-full bg-black inline-flex justify-center items-center text-gray-400 hover:text-[#ffaf00] duration-300 cursor-pointer">
                 <a href={web} target='_blank' rel='noopener noreferrer'><FaGlobe /></a>
               </span>
             </div>
           </div>
-          <p className="text-sm  text-justify tracking-wide mt-3 text-gray-300">
+          <p className="text-sm text-justify tracking-wide mt-2 text-gray-300">
             {des}
           </p>
         </div>

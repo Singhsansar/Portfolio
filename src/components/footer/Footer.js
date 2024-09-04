@@ -1,137 +1,71 @@
-import React from 'react'
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
-import { logo } from "../../assets/index"
+import React from 'react';
+import { logo } from '../../assets/index';
 
 const Footer = () => {
     return (
-        <div className="w-full py-20 h-auto border-b-[1px] border-b-black grid grid-cols-1 md:grid-cols-2 lgl:grid-cols-4 gap-8">
-            <div className="w-full h-full flex flex-col gap-8">
-                <img className="w-32" src={logo} alt="logo" />
-                <div className="flex gap-4">
-                    <span className="bannerIcon">
-                        <FaFacebookF />
-                    </span>
-                    <span className="bannerIcon">
-                        <FaTwitter />
-                    </span>
-                    <span className="bannerIcon">
-                        <FaLinkedinIn />
-                    </span>
+        <div className="w-full mt-32 py-10 bg-grey-900 text-white border-t-[1px] border-t-gray-700">
+            <div className="max-w-screen-xl mx-auto px-4 md:px-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {/* Logo and Social Media */}
+                    <div className="flex flex-col gap-8">
+                        <img className="w-32" src={logo} alt="logo" />
+                        <div className="flex gap-4 text-xl text-white">
+                            <a href="https://facebook.com" className="bannerIcon">
+                                <i className="fi fi-brands-facebook"></i>
+                            </a>
+                            <a href="https://twitter.com" className="bannerIcon">
+                                <i className="fi fi-brands-twitter"></i>
+                            </a>
+                            <a href="https://linkedin.com" className="bannerIcon">
+                                <i className="fi fi-brands-linkedin"></i>
+                            </a>
+                            <a href="https://instagram.com" className="bannerIcon">
+                                <i className="fi fi-brands-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Quick Links */}
+                    <div>
+                        <h3 className="text-xl uppercase text-designColor tracking-wider mb-4">Quick Links</h3>
+                        <ul className="flex flex-col gap-4 font-medium">
+                            <li><a href="#about" className="hover:text-designColor">About</a></li>
+                            <li><a href="#portfolio" className="hover:text-designColor">Portfolio</a></li>
+                            <li><a href="#services" className="hover:text-designColor">Services</a></li>
+                            <li><a href="#blog" className="hover:text-designColor">Blog</a></li>
+                            <li><a href="#contact" className="hover:text-designColor">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    {/* Resources */}
+                    <div>
+                        <h3 className="text-xl uppercase text-designColor tracking-wider mb-4">Resources</h3>
+                        <ul className="flex flex-col gap-4 font-medium">
+                            <li><a href="#authentication" className="hover:text-designColor">Authentication</a></li>
+                            <li><a href="#status" className="hover:text-designColor">System Status</a></li>
+                            <li><a href="#terms" className="hover:text-designColor">Terms of Service</a></li>
+                            <li><a href="#pricing" className="hover:text-designColor">Pricing</a></li>
+                            <li><a href="#rights" className="hover:text-designColor">Over Right</a></li>
+                        </ul>
+                    </div>
+
+                    {/* Developers */}
+                    <div>
+                        <h3 className="text-xl uppercase text-designColor tracking-wider mb-4">Developers</h3>
+                        <ul className="flex flex-col gap-4 font-medium">
+                            <li><a href="#documentation" className="hover:text-designColor">Documentation</a></li>
+                            <li><a href="#api" className="hover:text-designColor">API Reference</a></li>
+                            <li><a href="#support" className="hover:text-designColor">Support</a></li>
+                            <li><a href="#open-source" className="hover:text-designColor">Open Source</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            {/* <div className="w-full h-full">
-                <h3 className="text-xl uppercase text-designColor tracking-wider">
-                    Quick Link
-                </h3>
-                <ul className="flex flex-col gap-4 font-titleFont font-medium py-6 overflow-hidden">
-                    <li>
-                        <span className="w-full text-lg relative hover:text-designColor duration-300 group cursor-pointer">
-                            About
-                            <span className="w-full h-[1px] bg-designColor inline-flex absolute left-0 -bottom-1 -translate-x-[100%] group-hover:translate-x-0 transition-transform duration-300"></span>
-                        </span>
-                    </li>
-                    <li>
-                        <span className="w-full text-lg relative hover:text-designColor duration-300 group cursor-pointer">
-                            Portfolio
-                            <span className="w-full h-[1px] bg-designColor inline-flex absolute left-0 -bottom-1 -translate-x-[100%] group-hover:translate-x-0 transition-transform duration-300"></span>
-                        </span>
-                    </li>
-                    <li>
-                        <span className="w-full text-lg relative hover:text-designColor duration-300 group cursor-pointer">
-                            Services
-                            <span className="w-full h-[1px] bg-designColor inline-flex absolute left-0 -bottom-1 -translate-x-[100%] group-hover:translate-x-0 transition-transform duration-300"></span>
-                        </span>
-                    </li>
-                    <li>
-                        <span className="w-full text-lg relative hover:text-designColor duration-300 group cursor-pointer">
-                            Blog
-                            <span className="w-full h-[1px] bg-designColor inline-flex absolute left-0 -bottom-1 -translate-x-[100%] group-hover:translate-x-0 transition-transform duration-300"></span>
-                        </span>
-                    </li>
-                    <li>
-                        <span className="w-full text-lg relative hover:text-designColor duration-300 group cursor-pointer">
-                            Contact
-                            <span className="w-full h-[1px] bg-designColor inline-flex absolute left-0 -bottom-1 -translate-x-[100%] group-hover:translate-x-0 transition-transform duration-300"></span>
-                        </span>
-                    </li>
-                </ul>
+            <div className="text-center mt-8 text-gray-400 text-sm">
+                <p>&copy; {new Date().getFullYear()} Nikhil Singh. All rights reserved.</p>
             </div>
-            <div className="w-full h-full">
-                <h3 className="text-xl uppercase text-designColor tracking-wider">
-                    RESOURCES
-                </h3>
-                <ul className="flex flex-col gap-4 font-titleFont font-medium py-6 overflow-hidden">
-                    <li>
-                        <span className="w-full text-lg relative hover:text-designColor duration-300 group cursor-pointer">
-                            Authentication
-                            <span className="w-full h-[1px] bg-designColor inline-flex absolute left-0 -bottom-1 -translate-x-[100%] group-hover:translate-x-0 transition-transform duration-300"></span>
-                        </span>
-                    </li>
-                    <li>
-                        <span className="w-full text-lg relative hover:text-designColor duration-300 group cursor-pointer">
-                            System Status
-                            <span className="w-full h-[1px] bg-designColor inline-flex absolute left-0 -bottom-1 -translate-x-[100%] group-hover:translate-x-0 transition-transform duration-300"></span>
-                        </span>
-                    </li>
-                    <li>
-                        <span className="w-full text-lg relative hover:text-designColor duration-300 group cursor-pointer">
-                            Terms of Service
-                            <span className="w-full h-[1px] bg-designColor inline-flex absolute left-0 -bottom-1 -translate-x-[100%] group-hover:translate-x-0 transition-transform duration-300"></span>
-                        </span>
-                    </li>
-                    <li>
-                        <span className="w-full text-lg relative hover:text-designColor duration-300 group cursor-pointer">
-                            Pricing
-                            <span className="w-full h-[1px] bg-designColor inline-flex absolute left-0 -bottom-1 -translate-x-[100%] group-hover:translate-x-0 transition-transform duration-300"></span>
-                        </span>
-                    </li>
-                    <li>
-                        <span className="w-full text-lg relative hover:text-designColor duration-300 group cursor-pointer">
-                            Over Right
-                            <span className="w-full h-[1px] bg-designColor inline-flex absolute left-0 -bottom-1 -translate-x-[100%] group-hover:translate-x-0 transition-transform duration-300"></span>
-                        </span>
-                    </li>
-                </ul>
-            </div>
-            <div className="w-full h-full">
-                <h3 className="text-xl uppercase text-designColor tracking-wider">
-                    DEVELOPERS
-                </h3>
-                <ul className="flex flex-col gap-4 font-titleFont font-medium overflow-hidden py-6">
-                    <li>
-                        <span className="w-full text-lg relative hover:text-designColor duration-300 group cursor-pointer">
-                            Documentation
-                            <span className="w-full h-[1px] bg-designColor inline-flex absolute left-0 -bottom-1 -translate-x-[100%] group-hover:translate-x-0 transition-transform duration-300"></span>
-                        </span>
-                    </li>
-                    <li>
-                        <span className="w-full text-lg relative hover:text-designColor duration-300 group cursor-pointer">
-                            Authentication
-                            <span className="w-full h-[1px] bg-designColor inline-flex absolute left-0 -bottom-1 -translate-x-[100%] group-hover:translate-x-0 transition-transform duration-300"></span>
-                        </span>
-                    </li>
-                    <li>
-                        <span className="w-full text-lg relative hover:text-designColor duration-300 group cursor-pointer">
-                            API Reference
-                            <span className="w-full h-[1px] bg-designColor inline-flex absolute left-0 -bottom-1 -translate-x-[100%] group-hover:translate-x-0 transition-transform duration-300"></span>
-                        </span>
-                    </li>
-                    <li>
-                        <span className="w-full text-lg relative hover:text-designColor duration-300 group cursor-pointer">
-                            Support
-                            <span className="w-full h-[1px] bg-designColor inline-flex absolute left-0 -bottom-1 -translate-x-[100%] group-hover:translate-x-0 transition-transform duration-300"></span>
-                        </span>
-                    </li>
-                    <li>
-                        <span className="w-full text-lg relative hover:text-designColor duration-300 group cursor-pointer">
-                            Open Source
-                            <span className="w-full h-[1px] bg-designColor inline-flex absolute left-0 -bottom-1 -translate-x-[100%] group-hover:translate-x-0 transition-transform duration-300"></span>
-                        </span>
-                    </li>
-                </ul>
-            </div> */}
         </div>
     );
-}
+};
 
-export default Footer
+export default Footer;

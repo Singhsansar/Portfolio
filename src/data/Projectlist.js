@@ -1,4 +1,4 @@
-import { projectOne, projectTwo, projectThree, ProjectFour } from "../assets";
+import { projectOne, projectTwo, ProjectFour } from "../assets";
 
 export const ProjectList = [
     {
@@ -26,14 +26,5 @@ export const ProjectList = [
         git: "https://github.com/Singhsansar/Crop-Recommendation-System-",
         web: "https://crop-recomd.onrender.com/"
     },
-
-    {
-        id: 3,
-        Name: "Machine Translator",
-        des: 'Machine translator converts French to English, facilitating seamless language communication, breaking down barriers, and fostering global understanding.',
-        img: projectThree,
-        git: "https://github.com/Singhsansar/Machine-Translator",
-        web: "https://github.com/Singhsansar/Machine-Translator"
-    }
 
 ];
