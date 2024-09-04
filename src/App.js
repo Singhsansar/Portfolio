@@ -6,19 +6,29 @@ import Projects from "./components/projects/Projects";
 import Resume from "./components/resume/Resume";
 import Contact from "./components/contact/Contact";
 import Footer from "./components/footer/Footer";
+import withFadeIn from './components/common/withFadeIn'
+
+const FadeInBanner = withFadeIn(Banner);
+const FadeInFeatures = withFadeIn(Features);
+const FadeInProjects = withFadeIn(Projects);
+const FadeInResume = withFadeIn(Resume);
+const FadeInContact = withFadeIn(Contact);
+const FadeInFooter = withFadeIn(Footer);
+
 function App() {
   return (
-    <div className="w-full h-auto bg-bodyColor text-lightText px-4">
+    <div className="w-full h-auto bg-bodyColor text-lightText overflow-x-hidden">
       <Navbar />
       <div className="max-w-screen-xl mx-auto">
-        <Banner />
-        <Features />
-        <Projects />
-        <Resume />
-        <Contact />
-        <Footer />
+        <FadeInBanner />
+        <FadeInFeatures />
+        <FadeInProjects />
+        <FadeInResume />
+        <FadeInContact />
+        <FadeInFooter />
       </div>
     </div>
   );
 }
+
 export default App;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Title from '../layouts/Title';
 import ContactLeft from './ContactLeft';
 
@@ -17,7 +17,6 @@ const Contact = () => {
             .match(/^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/);
     };
 
-
     const handleSend = (e) => {
         e.preventDefault();
         if (username === "") {
@@ -29,12 +28,12 @@ const Contact = () => {
         } else if (!emailValidation(email)) {
             setErrMsg("Give a valid Email!");
         } else if (subject === "") {
-            setErrMsg("Plese give your Subject!");
+            setErrMsg("Please provide a subject!");
         } else if (message === "") {
             setErrMsg("Message is required!");
         } else {
             setSuccessMsg(
-                `Thank you dear ${username}, Your Messages has been sent Successfully!`
+                `Thank you dear ${username}, Your message has been sent successfully!`
             );
             setErrMsg("");
             setUsername("");
@@ -44,15 +43,16 @@ const Contact = () => {
             setMessage("");
         }
     };
+
     return (
         <section
             id="contact"
-            className="w-full py-20 border-b-[1px] border-b-black"
+            className="w-auto mx-4 sm:mx-6 md:mx-8 lg:mx-12 xl:mx-16 py-20 border-b-[1px] border-b-black"
         >
             <div className="flex justify-center items-center text-center">
                 <Title title="CONTACT" des="Contact With Me" />
             </div>
-            <div className="w-full">
+            <div className="w-full mt-10">
                 <div className="w-full h-auto flex flex-col lgl:flex-row justify-between">
                     <ContactLeft />
                     <div className="w-full lgl:w-[60%] h-full py-10 bg-gradient-to-r from-[#1e2024] to-[#23272b] flex flex-col gap-8 p-4 lgl:p-8 rounded-lg shadow-shadowOne">
@@ -115,7 +115,7 @@ const Contact = () => {
                                 <input
                                     onChange={(e) => setSubject(e.target.value)}
                                     value={subject}
-                                    className={`${errMsg === "Plese give your Subject!" &&
+                                    className={`${errMsg === "Please provide a subject!" &&
                                         "outline-designColor"
                                         } contactInput`}
                                     type="text"
@@ -132,6 +132,7 @@ const Contact = () => {
                                         } contactTextArea`}
                                     cols="30"
                                     rows="8"
+                                    style={{ textAlign: 'justify' }}
                                 ></textarea>
                             </div>
                             <div className="w-full">
@@ -160,4 +161,4 @@ const Contact = () => {
     );
 }
 
-export default Contact
+export default Contact;

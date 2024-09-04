@@ -7,10 +7,10 @@ const Features = () => {
   return (
     <section
       id="features"
-      className="w-full py-20 border-b-[1px] border-b-black"
+      className="w-auto py-10 border-b-[1px] border-b-black mx-4 sm:mx-6 md:mx-8 lg:mx-12 xl:mx-16"
     >
       <Title title="Features" des="What I Do" />
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-10">
         {featuresData.map((item) => (
           <Card key={item.id} item={item} />
         ))}
