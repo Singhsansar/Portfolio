@@ -5,6 +5,9 @@
 @tailwind utilities;
 
 @layer components {
+  body {
+    @apply w-full h-full;
+  }
   .bannerIcon {
     @apply w-16 h-16 bg-black bg-opacity-25 text-gray-200 text-xl inline-flex items-center justify-center rounded-md shadow-shadowOne hover:bg-opacity-40 hover:-translate-y-1 transition-all hover:text-designColor cursor-pointer duration-300;
   }
@@ -20,12 +23,34 @@
   .contactTextArea {
     @apply w-full rounded-lg border-b-[1px] border-b-gray-600 bg-[#191b1e] text-lightText px-4 py-2 active:outline-none focus-visible:outline-designColor outline-none focus-visible:border-b-transparent duration-300 resize-none;
   }
+  .input-box {
+    @apply w-[100%] rounded-md p-4 bg-grey pl-12 border border-grey focus:bg-transparent placeholder:text-black;
+  }
+
+  input:disabled,
+  input:disabled ~ .input-icon {
+    @apply opacity-50;
+  }
+
+  .input-icon {
+    @apply absolute left-4 top-1/2 -translate-y-1/2;
+  }
+  .btn-dark {
+    @apply whitespace-nowrap bg-black text-white rounded-full py-3 px-6 text-xl capitalize hover:bg-opacity-80;
+  }
+
+  .btn-light {
+    @apply btn-dark bg-grey text-black;
+  }
 }
 
 .active {
   color: white;
   background-color: blue;
-  padding: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 6px;
 }
 .scrollbar-hide::-webkit-scrollbar {

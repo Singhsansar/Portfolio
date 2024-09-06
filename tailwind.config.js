@@ -18,13 +18,22 @@ module.exports = {
         titleFont: ["Montserrat", "sans-serif"],
       },
       colors: {
-        bodyColor: "#212428",
+        bodyColor: "#020617",
         lightText: "#c4cfde",
         boxBg: "linear-gradient(145deg, #182cab, #23272b)",
         designColor: "#182cab",
+        white: '#FFFFFF',
+        black: '#242424',
+        grey: '#F3F3F3',
+        'dark-grey': '#6B6B6B',
+        red: '#FF4E4E',
+        transparent: 'transparent',
+        twitter: '#1DA1F2',     // Fixed the key from 'twitter''
+        purple: '#8B46FF'
       },
+
       boxShadow: {
-        shadowOne: "10px 10px 19px #1c1e22, -10px -10px 19px #262a2e",
+        shadowOne: "",
       },
     },
   },

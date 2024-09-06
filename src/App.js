@@ -1,36 +1,37 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Homepage from "./page/Homepage";
+import ProjectDetails from "./page/ProjectDetails";
+import AdminAuth from "./page/adminAuth";
+import ChangePassword from "./page/change-password.page";
+import SideNav from "./components/navbar/SideNav";
 import Navbar from "./components/navbar/Navbar";
-import Banner from "./components/banner/Banner";
-import Features from "./components/features/Features";
-import Projects from "./components/projects/Projects";
-import Resume from "./components/resume/Resume";
-import Contact from "./components/contact/Contact";
-import Footer from "./components/footer/Footer";
-import withFadeIn from './components/common/withFadeIn'
-import professionalSkills from "./components/skills/professionalSkills";
-
-const FadeInSkills = withFadeIn(professionalSkills)
-const FadeInBanner = withFadeIn(Banner);
-const FadeInFeatures = withFadeIn(Features);
-const FadeInProjects = withFadeIn(Projects);
-const FadeInResume = withFadeIn(Resume);
-const FadeInContact = withFadeIn(Contact);
-const FadeInFooter = withFadeIn(Footer);
+import AdminNavbar from "./components/common/adminNav";
+import Personaldetails from "./components/admin/personaldetails";
+import EditFeatures from "./components/admin/features";
+import EditProjects from "./components/admin/editprojects";
+import ManageSkills from "./components/admin/editSkills";
 
 function App() {
   return (
-    <div className="w-full h-auto bg-bodyColor text-lightText overflow-x-hidden">
-      <Navbar />
-      <div className="max-w-screen-xl mx-auto">
-        <FadeInBanner />
-        <FadeInSkills/>
-        <FadeInFeatures />
-        <FadeInProjects />
-        <FadeInResume />
-        <FadeInContact />
-      </div>
-      <FadeInFooter />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navbar />}>
+          <Route index element={<Homepage />} />
+          <Route path="project/:id" element={<ProjectDetails />} />
+        </Route>
+        {/* <Route path="/admin" element={<AdminNavbar />}>
+          <Route index element={<AdminAuth />} />
+          <Route path="dashboard" element={<SideNav />}>
+            <Route path="personal-details" element={<Personaldetails />} />
+            <Route path="skills" element={<ManageSkills />} />
+            <Route path="projects" element={<EditProjects />} />
+            <Route path="features" element={<EditFeatures />} />
+            <Route path="change-password" element={<ChangePassword />} />
+          </Route>
+        </Route> */}
+      </Routes>
+    </Router>
   );
 }
 
