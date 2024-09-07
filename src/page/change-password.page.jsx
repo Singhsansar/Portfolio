@@ -64,10 +64,7 @@ const ChangePassword = () => {
   return (
     <AnimationWrapper>
       <Toaster />
-      <div className=" flex items-center justify-center lg:mt-36">
-        <h1 className="sm:hidden md:hidden ml-10 mt-10 font-bold text-2xl text-white">
-          Change Your Password
-        </h1>
+      <div className=" max-md:mt-40 flex justify-center items-center lg:mt-36 md:mt-36">
         <form
           ref={ChangePasswordForm}
           onSubmit={handleSubmit}

@@ -46,8 +46,8 @@ const AdminAuth = () => {
       ) : (
         <AnimationWrapper keyvalue="sign-in">
           <div className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-            <div class="absolute h-full w-full bg-slate-950">
-              <div class="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div>
+            <div className="absolute h-full w-full bg-slate-950">
+              <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div>
             </div>
 
             <section className=" flexed relative z-10 w-full h-full flex items-center justify-center p-4">

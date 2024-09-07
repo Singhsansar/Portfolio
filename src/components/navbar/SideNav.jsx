@@ -4,7 +4,6 @@ import { NavLink, Outlet, useLocation } from "react-router-dom";
 const SideNav = () => {
   const location = useLocation();
   let page = location.pathname.split("/")[3] || "dashboard";
-  console.log(page);
   const [pageState, setPageState] = useState(page.replace("-", " "));
   const [showSideNav, setShowSideNav] = useState(false);
   const activeTabLine = useRef(null);
@@ -43,7 +42,7 @@ const SideNav = () => {
     }`;
 
   return (
-    <section className="relative  -z-2 mt-20 w-full h-full flex flex-col md:flex-row bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]">
+    <section className="fixed  -z-2 mt-20 w-full h-full flex flex-col md:flex-row bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]">
       <div className="md:hidden top-0 z-40 bg-slate-900 text-white">
         <div className="flex items-center p-2 border-b border-gray-700">
           <button ref={sideBarIconTab} className="p-2" onClick={handleMenu}>
@@ -95,49 +94,49 @@ const SideNav = () => {
               Projects
             </NavLink>
             <NavLink
-              to="/skills"
+              to="/admin/dashboard/skills"
               onClick={changePageState}
               className={navLinkStyles}
             >
               Skills
             </NavLink>
             <NavLink
-              to="/education"
+              to="/admin/dashboard/education"
               onClick={changePageState}
               className={navLinkStyles}
             >
               Education
             </NavLink>
             <NavLink
-              to="/experience"
+              to="/admin/dashboard/experience"
               onClick={changePageState}
               className={navLinkStyles}
             >
               Experience
             </NavLink>
             <NavLink
-              to="/achievements"
+              to="/admin/dashboard/achievements"
               onClick={changePageState}
               className={navLinkStyles}
             >
               Achievements
             </NavLink>
             <NavLink
-              to="/publications"
+              to="/admin/dashboard/publications"
               onClick={changePageState}
               className={navLinkStyles}
             >
               Publications
             </NavLink>
             <NavLink
-              to="/hobbies"
+              to="/admin/dashboard/hobbies"
               onClick={changePageState}
               className={navLinkStyles}
             >
               Hobbies
             </NavLink>
             <NavLink
-              to="/contacts"
+              to="/admin/dashboard/contacts"
               onClick={changePageState}
               className={navLinkStyles}
             >
@@ -160,7 +159,7 @@ const SideNav = () => {
 
       {/* Sidebar for larger screens */}
       <div
-        className={`hidden md:block w-60 bg-slate-900 h-screen sticky top-0 z-20 p-6 overflow-y-auto ${
+        className={`hidden md:block w-60 bg-slate-900 h-full sticky top-0 z-20 p-6 overflow-y-auto ${
           showSideNav ? "block" : "hidden"
         }`}
       >
@@ -189,49 +188,49 @@ const SideNav = () => {
             Projects
           </NavLink>
           <NavLink
-            to="/skills"
+            to="/admin/dashboard/skills"
             onClick={changePageState}
             className={navLinkStyles}
           >
             Skills
           </NavLink>
           <NavLink
-            to="/education"
+            to="/admin/dashboard/education"
             onClick={changePageState}
             className={navLinkStyles}
           >
             Education
           </NavLink>
           <NavLink
-            to="/experience"
+            to="/admin/dashboard/experience"
             onClick={changePageState}
             className={navLinkStyles}
           >
             Experience
           </NavLink>
           <NavLink
-            to="/achievements"
+            to="/admin/dashboard/achievements"
             onClick={changePageState}
             className={navLinkStyles}
           >
             Achievements
           </NavLink>
           <NavLink
-            to="/publications"
+            to="/admin/dashboard/publications"
             onClick={changePageState}
             className={navLinkStyles}
           >
             Publications
           </NavLink>
           <NavLink
-            to="/hobbies"
+            to="/admin/dashboard/hobbies"
             onClick={changePageState}
             className={navLinkStyles}
           >
             Hobbies
           </NavLink>
           <NavLink
-            to="/contacts"
+            to="/admin/dashboard/contacts"
             onClick={changePageState}
             className={navLinkStyles}
           >
@@ -252,7 +251,7 @@ const SideNav = () => {
       </div>
 
       {/* Main content section */}
-      <div className="flex-1 max-md:mt-20 h-full">
+      <div className="flex-1 max-md:mt-0 max-md:pt-2 sm:top-0 h-full overflow-y-scroll">
         <Outlet />
       </div>
     </section>

@@ -22,7 +22,9 @@ const InputBox = ({
         defaultValue={value}
         id={id}
         disabled={disable}
-        className={`input-box pl-12 ${name === "fullname" ? "capitalize" : ""}`}
+        className={`input-box  pl-12 ${
+          name === "fullname" ? "capitalize" : ""
+        }`}
       />
       <i
         className={`fi ${icon} absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500`}

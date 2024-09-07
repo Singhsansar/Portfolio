@@ -1,94 +1,120 @@
-import { useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import InPageNavigation from "./inpagenavigation";
+import NoDataMessage from "./nodata";
+import { useSearchParams } from "react-router-dom";
+import AnimationWrapper from "../common/animationWrapper";
 
-const ManageSkills = () => {
-  const [skills, setSkills] = useState([{ title: "", icon: null }]);
+const EditFeatures = () => {
+  const [features, setFeatures] = useState([]); // Initialize as an empty array
+  const [addFeatures, setAddFeatures] = useState([]); // Initialize as an empty array
+  const [query, setQuery] = useState("");
+  let activeTab = useSearchParams()[0].get("tab");
 
-  const handleAddSkill = () => {
-    setSkills([...skills, { title: "", icon: null }]);
+  // Dummy function for now, can be updated later
+  const getFeatures = useCallback(({ page, isAddFeature }) => {
+    const mockData = {
+      features: [
+        { id: 1, name: "Feature 1" },
+        { id: 2, name: "Feature 2" },
+        { id: 3, name: "Feature 3" },
+      ],
+      addFeatures: [
+        { id: 4, name: "Add Feature 1" },
+        { id: 5, name: "Add Feature 2" },
+      ],
+    };
+
+    if (isAddFeature) {
+      setAddFeatures(mockData.addFeatures);
+    } else {
+      setFeatures(mockData.features);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (features.length === 0 && addFeatures.length === 0) {
+      getFeatures({ page: 1, isAddFeature: false });
+      getFeatures({ page: 1, isAddFeature: true });
+    }
+  }, [getFeatures, features.length, addFeatures.length]); // Now watching feature lengths to prevent re-rendering when not necessary
+
+  useEffect(() => {
+    if (query !== "") {
+      const filteredFeatures = features.filter((feature) =>
+        feature.name.toLowerCase().includes(query.toLowerCase())
+      );
+      const filteredAddFeatures = addFeatures.filter((feature) =>
+        feature.name.toLowerCase().includes(query.toLowerCase())
+      );
+      setFeatures(filteredFeatures);
+      setAddFeatures(filteredAddFeatures);
+    } else {
+      getFeatures({ page: 1, isAddFeature: false });
+      getFeatures({ page: 1, isAddFeature: true });
+    }
+  }, [query, features, addFeatures, getFeatures]); // Added missing dependencies here
+
+  const handleSearch = (e) => {
+    if (e.keyCode === 13) {
+      setQuery(e.target.value);
+    }
   };
 
-  const handleSkillChange = (index, field, value) => {
-    const updatedSkills = [...skills];
-    updatedSkills[index][field] = value;
-    setSkills(updatedSkills);
-  };
-
-  const handleIconUpload = (index, file) => {
-    const updatedSkills = [...skills];
-    updatedSkills[index].icon = URL.createObjectURL(file);
-    setSkills(updatedSkills);
-  };
-
-  const handleRemoveSkill = (index) => {
-    const updatedSkills = skills.filter((_, i) => i !== index);
-    setSkills(updatedSkills);
+  const handleChange = (e) => {
+    if (!e.target.value) {
+      setQuery("");
+    }
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 py-8 bg-gray-900 rounded-lg shadow-lg">
-      <h2 className="text-3xl font-bold text-white mb-8 text-center">
-        Manage Skills
-      </h2>
-
-      {skills.map((skill, index) => (
-        <div key={index} className="mb-8 p-6 bg-gray-800 rounded-lg shadow-md">
-          <div className="mb-4">
-            <label className="block text-white text-lg font-medium mb-2">
-              Skill Title
-            </label>
-            <input
-              type="text"
-              className="input-box w-full p-3 border rounded-md border-gray-700 bg-gray-900 text-white"
-              value={skill.title}
-              onChange={(e) =>
-                handleSkillChange(index, "title", e.target.value)
-              }
-              placeholder="Enter Skill Title"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-white text-lg font-medium mb-2">
-              Upload Icon
-            </label>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={(e) => handleIconUpload(index, e.target.files[0])}
-              className="block text-white"
-            />
-            {skill.icon && (
-              <img
-                src={skill.icon}
-                alt="Skill Icon"
-                className="w-16 h-16 mt-4"
-              />
-            )}
-          </div>
-
-          {skills.length > 1 && (
-            <button
-              type="button"
-              className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition"
-              onClick={() => handleRemoveSkill(index)}
-            >
-              Remove Skill
-            </button>
-          )}
-        </div>
-      ))}
-
-      <div className="text-center">
-        <button
-          type="button"
-          className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
-          onClick={handleAddSkill}
-        >
-          Add More Skills
-        </button>
+    <div className="md:w-[80%] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] h-full lg:px-10 lg:py-10 max-md:py-2 sm:w-full md:ml-[10vw]  items-center">
+      <h1 className="max-md:hidden text-2xl lg:my-4 text-white ">
+        Manage Features
+      </h1>
+      <div className="relative max-md:mt-0 mb-2 ">
+        <input
+          type="search"
+          className="w-full bg-grey p-4 pl-12 pr-6 rounded-md placeholder:text-dark-grey"
+          placeholder="Search Features"
+          onChange={handleChange}
+          onKeyDown={handleSearch}
+        />
+        <i className="fi fi-rr-search absolute right-[10%] md:pointer-events-none md:left-5 top-1/2 -translate-y-1/2 text-dark-grey"></i>
       </div>
+
+      <InPageNavigation
+        routes={["Features", "Add Features"]}
+        defaultActiveIndex={activeTab !== "addFeature" ? 0 : 1}
+      >
+        <>
+          {features.length ? (
+            features.map((feature, i) => (
+              <AnimationWrapper key={i} transition={{ delay: i * 0.04 }}>
+                {/* Placeholder for Feature Card */}
+                <div>Feature Card {feature.name}</div>
+              </AnimationWrapper>
+            ))
+          ) : (
+            <NoDataMessage message="No Features available" />
+          )}
+          {/* Placeholder for Load More button */}
+        </>
+        <>
+          {addFeatures.length ? (
+            addFeatures.map((feature, i) => (
+              <AnimationWrapper key={i} transition={{ delay: i * 0.04 }}>
+                {/* Placeholder for Add Feature Card */}
+                <div>Add Feature Card {feature.name}</div>
+              </AnimationWrapper>
+            ))
+          ) : (
+            <NoDataMessage message="No Add Features available" />
+          )}
+          {/* Placeholder for Load More button */}
+        </>
+      </InPageNavigation>
     </div>
   );
 };
 
-export default ManageSkills;
+export default EditFeatures;

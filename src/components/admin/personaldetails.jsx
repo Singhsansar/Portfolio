@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import AnimationWrapper from "../common/animationWrapper";
 import { Toaster } from "react-hot-toast";
 import InputBox from "../common/input.component";
@@ -19,25 +19,24 @@ const EditProfilePage = () => {
 
   return (
     <AnimationWrapper className="mt-10">
-      <div className="max-w-6xl mx-auto h-full">
+      <div className="max-w-6xl my-10 mx-auto h-full">
         <form
           ref={editprofileform}
-          className="bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] p-20 rounded-lg shadow-md w-[100%]"
+          className="bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] p-10 rounded-lg shadow-md max-md:w-full"
         >
           <Toaster />
           <h1 className="text-2xl text-white font-semibold mb-6 text-center">
             Edit Profile
           </h1>
 
-          <div className="flex flex-col lg:flex-row items-start py-10 gap-8 lg:gap-10">
-            {/* Profile Image Upload Section */}
-            <div className="flex flex-col items-center mb-5">
+          <div className="flex flex-col w-full  items-center py-10 gap-8 lg:gap-10">
+            <div className="flex flex-col items-center justify-center mb-5">
               <label
                 htmlFor="uploadImg"
                 id="profileImgLabel"
                 className="relative block w-48 h-48 bg-gray-300 rounded-full overflow-hidden border border-gray-400"
               >
-                <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center bg-black/30 opacity-0 hover:opacity-100">
+                <div className="w-full h-full  top-0 left-0 flex items-center justify-center bg-black/30 opacity-0 hover:opacity-100">
                   Upload Image
                 </div>
                 <img
@@ -55,8 +54,7 @@ const EditProfilePage = () => {
               />
             </div>
 
-            {/* Profile Details Form */}
-            <div className="w-full">
+            <div className="w-full flex flex-col">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <InputBox
                   name="fullname"
@@ -133,7 +131,10 @@ const EditProfilePage = () => {
               </div>
 
               {/* Submit Button */}
-              <button className="btn-dark w-auto px-10 mt-6" type="submit">
+              <button
+                className="bg-black text-white hover:text-black hover:bg-white rounded-md max-w-[20%] px-10 py-3  mt-2"
+                type="submit"
+              >
                 Update
               </button>
             </div>
